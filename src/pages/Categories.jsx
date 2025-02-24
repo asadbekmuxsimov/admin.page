@@ -20,7 +20,7 @@ function Categories({ collapsed }) {
   return (
     <div className="flex h-full">
       <Sidebar collapsed={collapsed} />
-      <main className="bg-slate-200 h-full w-full p-10">
+      <main className=" h-full w-full p-10">
         <div className="text-2xl font-bold mb-2">Category Page</div>
         <Table
           dataSource={products}

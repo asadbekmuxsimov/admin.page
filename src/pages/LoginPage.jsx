@@ -10,7 +10,7 @@ function LoginPage() {
   return (
     <>
       <div className="flex items-center justify-center h-full">
-        <Card className="shadow-lg w-96 shadow-black">
+        <Card className="shadow-lg w-96 shadow-gary-600">
           <Form
             onFinish={(values) => {
               setLoading(true);
