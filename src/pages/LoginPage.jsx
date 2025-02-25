@@ -1,5 +1,4 @@
-import { Button, Card, Form, message } from "antd";
-import Input from "antd/es/input/Input";
+import { Button, Card, Form, Input, message } from "antd";
 import axios from "axios";
 import { useState } from "react";
 import useAuthStore from "../myStore";
