@@ -5,6 +5,8 @@ import useAuthStore from "../myStore";
 
 function LoginPage() {
   const stateAuth = useAuthStore();
+  console.log(stateAuth);
+
   const [loading, setLoading] = useState(false);
   return (
     <>
@@ -21,6 +23,9 @@ function LoginPage() {
                     token: res.data.token,
                     user: res.data.user,
                   });
+
+                  localStorage.setItem("auth", JSON.stringify(res.data));
+
                   setLoading(false);
                   message.success("Success");
                 });

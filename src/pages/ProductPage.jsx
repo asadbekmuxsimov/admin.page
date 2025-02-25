@@ -14,18 +14,24 @@ function ProductPage({ collapsed }) {
   }, []);
   if (!products) {
     return (
-      <div className="flex justify-center mt-44">
-        <div className="text-4xl">Loading...</div>
-      </div>
+      <>
+        <div className=" mt-44 m-auto">
+          <div className="text-4xl">Loading...</div>
+        </div>
+      </>
     );
   }
   return (
     <div className="h-screen bg-gray-100">
       <div className="flex h-full">
-        <Sidebar collapsed={collapsed} />
         <main className=" h-full w-full p-10">
           <div className="text-2xl font-bold mb-2">Products Page</div>
           <Table
+            className="w-full flex flex-col justify-between " 
+            style={{
+              width: 1200,
+              display: "flex",
+            }}
             dataSource={products}
             columns={[
               {

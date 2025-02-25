@@ -1,45 +1,46 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Route, Routes } from "react-router";
-import HomePage from "./pages/HomePage";
-import ProductPage from "./pages/ProductPage";
-import Categories from "./pages/Categories";
 import Navbar from "./components/Navbar";
-import LoginPage from "./pages/LoginPage";
+import Sidebar from "./components/Sidebar";
 import useAuthStore from "./myStore";
+import Categories from "./pages/Categories";
+import HomePage from "./pages/HomePage";
+import LoginPage from "./pages/LoginPage";
+import ProductPage from "./pages/ProductPage";
 
 function App() {
   const [collapsed, setCollapsed] = useState(false);
-  const [loginPage, setLoginPage] = useState(false);
   const stateAuth = useAuthStore();
+  console.log(stateAuth);
 
-  useEffect(() => {
-    if (stateAuth.token) {
-      setLoginPage(true);
-    }
-  }, [stateAuth.token]);
-
-  return (
-    <div className="h-screen bg-gray-100">
-      {loginPage && (
-        <Navbar collapsed={collapsed} setCollapsed={setCollapsed} />
-      )}
-      {loginPage ? (
-        <Routes>
-          <Route path="/" element={<HomePage collapsed={collapsed} />} />
-          <Route
-            path="/products"
-            element={<ProductPage collapsed={collapsed} />}
-          />
-          <Route
-            path="/categories"
-            element={<Categories collapsed={collapsed} />}
-          />
-        </Routes>
-      ) : (
+  if (!stateAuth.user) {
+    return (
+      <>
         <LoginPage />
-      )}
-    </div>
-  );
+      </>
+    );
+  } else {
+    return (
+      <div className="h-screen bg-gray-100">
+        <Navbar collapsed={collapsed} setCollapsed={setCollapsed} />
+        <div className="flex w-full">
+          <Sidebar collapsed={collapsed} />
+
+          <Routes>
+            <Route path="/" element={<HomePage collapsed={collapsed} />} />
+            <Route
+              path="/products"
+              element={<ProductPage collapsed={collapsed} />}
+            />
+            <Route
+              path="/categories"
+              element={<Categories collapsed={collapsed} />}
+            />
+          </Routes>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;

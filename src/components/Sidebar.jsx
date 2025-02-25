@@ -16,6 +16,7 @@ function Sidebar({ collapsed }) {
             style={{
                 padding: 4,
                 maxWidth: 200,
+                height:"100vh"
             }}
             inlineCollapsed={collapsed}
             items={[

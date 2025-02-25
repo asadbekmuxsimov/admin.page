@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Sidebar from "../components/Sidebar";
-import { Table } from "antd";
+import { Flex, Table } from "antd";
 import axios from "axios";
 
 function Categories({ collapsed }) {
@@ -13,16 +13,24 @@ function Categories({ collapsed }) {
       });
   }, []);
   if (!products) {
-    return <div className="flex justify-center mt-44">
-         <div className="text-4xl">Loading...</div>
-    </div>;
+    return (
+      <>
+        <div className="mt-44 m-auto">
+          <div className="text-4xl">Loading...</div>
+        </div>
+      </>
+    );
   }
   return (
     <div className="flex h-full">
-      <Sidebar collapsed={collapsed} />
       <main className=" h-full w-full p-10">
         <div className="text-2xl font-bold mb-2">Category Page</div>
         <Table
+          className="w-full flex flex-col justify-between "
+          style={{
+            width: 1200,
+            display: "flex",
+          }}
           dataSource={products}
           columns={[
             {
