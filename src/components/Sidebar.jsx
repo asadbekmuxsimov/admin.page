@@ -1,4 +1,4 @@
-import { FolderAddOutlined, ProductOutlined } from "@ant-design/icons";
+import { FolderAddOutlined, FolderFilled, ProductOutlined, UserAddOutlined } from "@ant-design/icons";
 import { Menu } from "antd";
 import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -39,6 +39,22 @@ function Sidebar({ collapsed }) {
                     icon: <FolderAddOutlined />,
                     onClick: () => {
                         navigate("/categories")
+                    }
+                },
+                {
+                    key: "rents",
+                    label: "Ijaralar",
+                    icon: <FolderFilled/>,
+                    onClick: () => {
+                        navigate("/RentsPage")
+                    }
+                },
+                {
+                    key: "users",
+                    label: "Kitobxonlar",
+                    icon: <UserAddOutlined/>,
+                    onClick: () => {
+                        navigate("/UsersPage")
                     }
                 },
             ]}

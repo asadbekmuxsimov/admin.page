@@ -7,6 +7,8 @@ import Categories from "./pages/Categories";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import ProductPage from "./pages/ProductPage";
+import RentsPage from "./pages/RentsPage";
+import Users from "./pages/usersPage";
 
 function App() {
   const [collapsed, setCollapsed] = useState(false);
@@ -35,6 +37,14 @@ function App() {
             <Route
               path="/categories"
               element={<Categories collapsed={collapsed} />}
+            />
+            <Route
+              path="/RentsPage"
+              element={<RentsPage collapsed={collapsed} />}
+            />
+            <Route
+              path="/UsersPage"
+              element={<Users collapsed={collapsed} />}
             />
           </Routes>
         </div>
