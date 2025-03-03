@@ -9,6 +9,7 @@ import LoginPage from "./pages/LoginPage";
 import ProductPage from "./pages/ProductPage";
 import RentsPage from "./pages/RentsPage";
 import Users from "./pages/usersPage";
+import KitoblarimPage from "./pages/KitoblarPage";
 
 function App() {
   const [collapsed, setCollapsed] = useState(false);
@@ -45,6 +46,10 @@ function App() {
             <Route
               path="/UsersPage"
               element={<Users collapsed={collapsed} />}
+            />
+            <Route
+              path="/KitoblarPage"
+              element={<KitoblarimPage collapsed={collapsed} />}
             />
           </Routes>
         </div>

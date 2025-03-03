@@ -13,6 +13,12 @@ function LoginPage() {
       <div className="flex items-center justify-center h-full">
         <Card className="shadow-lg w-96 shadow-gary-600">
           <Form
+            layout="vertical"
+            initialValues={{
+              username: "lib2",
+              password: "lib22",
+              // ZARYATKA UCHUN RAXMAT UKAM :)
+            }}
             onFinish={(values) => {
               setLoading(true);
               axios
