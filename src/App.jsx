@@ -8,7 +8,7 @@ import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import ProductPage from "./pages/ProductPage";
 import RentsPage from "./pages/RentsPage";
-import Users from "./pages/usersPage";
+import Users from "./pages/UsersPage";
 import KitoblarimPage from "./pages/KitoblarPage";
 
 function App() {
