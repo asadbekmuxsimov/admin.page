@@ -25,7 +25,11 @@ function AddRents({ rentData, closeModal }) {
     };
 
     axios
-      .put(`https://library.softly.uz/api/rents/${rentData.id}`, updatedData)
+      .put(`https://library.softly.uz/api/rents/${rentData.id}`, updatedData, {
+        headers: {
+            Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDUyLCJsaWJyYXJpYW4iOnRydWUsImxpYnJhcnlJZCI6MiwibG9jYXRpb25JZCI6Miwib3duZXIiOmZhbHNlLCJtb2RlcmF0b3IiOmZhbHNlLCJleHAiOjE3NDE1Nzk2MTAsImlhdCI6MTc0MDU0MjgxMH0.-eBJMuySc4me6wRtrRlTSGHdG0NhqLSTEaVVPIn8ZHc"
+        }
+      })
       .then(() => {
         message.success("Ma'lumotlar yangilandi!");
         closeModal();
